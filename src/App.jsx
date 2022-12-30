@@ -4,9 +4,7 @@ import './App.css'
 function App() {
   const [result, setResult] = useState(0)
 
-  useEffect(()=>(
-    document.addEventListener('keydown', (event) => setResult(event.key))
-  ))
+  
 
   return (
     <div id='calculator'>
@@ -18,16 +16,16 @@ function App() {
       </div>
       <div id='keyboard'>
         <button id='clear'>AC</button>
-        <button id='divide' className='small'>/</button>
-        <button id='multiply' className='small'>*</button>
+        <button id='divide' className='small signal'>/</button>
+        <button id='multiply' className='small signal'>*</button>
         <button id='seven' className='small'>7</button>
         <button id='eight' className='small'>8</button>
         <button id='nine' className='small'>9</button>
-        <button id='subtract' className='small'>-</button>
+        <button id='subtract' className='small signal'>-</button>
         <button id='four' className='small'>4</button>
         <button id='five' className='small'>5</button>
         <button id='six' className='small'>6</button>
-        <button id='add' className='small'>+</button>
+        <button id='add' className='small signal'>+</button>
         <div id='cont-2'>
           <div id='container-keys'>
             <button id='one' className='small'>1</button>

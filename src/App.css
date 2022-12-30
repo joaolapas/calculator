@@ -75,13 +75,17 @@ button{
   width: 50px;
   height: 104px;
   margin: 2px;
-  background-color: cornflowerblue;
+  background-color: rgb(118, 144, 193);
   color: beige;
 }
 #clear{
-  background-color: indianred;
+  background-color: rgb(183, 101, 101);
   color: beige;
 }
 p{
   color: azure;
+}
+.signal{
+  background-color: rgb(139, 137, 134);
+  color:aliceblue
 }
