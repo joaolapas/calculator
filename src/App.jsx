@@ -26,22 +26,34 @@ function App() {
   const handleOperator = (event) =>{
       const operator = event.target.textContent
       
-      
-      if(/[0-9]/.test(result)){
-        setExpression((prev)=>prev + operator) 
-        setResult(()=>operator) 
-      }else{
-        if(operator!='-'){
-          setExpression((prev)=>prev.slice(0, prev.length-1)+operator)
-          setResult(()=>operator) 
+      if(expression.includes('=')){
+        setExpression(result + operator)
+      }else if(operator=='-' && /\W+$/.test(expression)){
+        setResult((prev)=>operator)
+        setExpression((prev)=>prev + operator)
+      }else if(operator!=='-'){
+        if(/\W+$/.test(expression)){
+          setExpression(expression.replace(/\W+$/, operator))
         }else{
-          setExpression((prev)=>prev + operator) 
-          setResult(()=>operator) 
+            setResult(()=>operator)
+            setExpression((prev)=>prev + operator)
         }
-        
+      }else{
+        setResult(()=>operator)
+        setExpression((prev)=>prev + operator)
       }
+
       
+      
+
+
+
   }
+      
+      
+      
+      
+  
 
   const handleDecimal = () =>{
     if(!result.includes('.')){
@@ -65,9 +77,9 @@ function App() {
 
   return (
     <div id='calculator'>
-      <div id='all-display'>
-        <input type='text' value={expression} id='input' />
-        <div id='display'>{result}</div>
+      <div id='display-container'>
+        <span>{expression}</span>
+        <span id='display'>{result}</span>
 
 
       </div>
